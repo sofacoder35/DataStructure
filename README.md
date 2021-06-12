@@ -1,2 +1,2 @@
 # DataStructure
-# DS algorithms
+# algorithms
