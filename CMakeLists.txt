@@ -4,3 +4,4 @@ project(DataStructure)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(DataStructure main.cpp)
+add_executable(LinearList ch02-LinearList.cpp)
