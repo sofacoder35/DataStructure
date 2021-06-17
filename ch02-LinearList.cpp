@@ -28,6 +28,6 @@ int main(){
     InitList(L);
     IncreaseList(L,5);
     L.data[12]=3;
-    printf("%d", L.data[12]);
+    //printf("%d", L.data[12]);
     return 0;
 }
