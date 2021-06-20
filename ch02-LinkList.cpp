@@ -52,7 +52,7 @@ int main(){
     LinkList L;
     InitList(L);
     //List_HeadInsert(L);
-    List_TailInsert(L);
+    //List_TailInsert(L);
     print(L);
     return 0;
 }
