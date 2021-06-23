@@ -77,9 +77,7 @@ void print(LinkList &L){
         p=p->next;
     }
 }
-bool ListInert(LinkList &L ,int i ,int e){
-    if()
-}
+
 int main(){
     LinkList L;
     InitList(L);
