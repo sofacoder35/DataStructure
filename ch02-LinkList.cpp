@@ -8,7 +8,8 @@ typedef struct LNode{
     LNode *next;
 }LNode,*LinkList;
 bool InitList(LinkList &L){
-    L=(LNode *)malloc(sizeof(LNode));
+    //L=(LNode *)malloc(sizeof(LNode));
+    L=new LNode;
     if(L==NULL)
         return false;
     L->next=NULL;
@@ -41,19 +42,59 @@ LinkList List_TailInsert(LinkList &L){//尾插法
     }
     return L;
 }
-void print(LinkList &L){
-    L=L->next;
-    while (L!=NULL){
-        printf("%d ",L->data);
-        L=L->next;
+LNode *GetElem(LinkList &L,int i){//按位查找
+    if(i<0)return NULL;
+    LNode *p=L->next;
+    if(i==0)return p;
+    int j=1;
+    while (p && j<i){
+        p=p->next;
+        j++;
     }
+    return p;
+
+}
+LNode *LocateElem(LinkList &L,int e){//按值查找
+    LNode *p=L->next;
+    while (p && p->data!=e){
+        p=p->next;
+    }
+    return p;
+}
+int Length(LinkList &L){
+    LNode *p=L;
+    int len=0;
+    while (p->next){
+        len++;
+        p=p->next;
+    }
+    return len;
+}
+void print(LinkList &L){
+    LNode *p=L->next;
+    while (p!=NULL){
+        printf("%d ",p->data);
+        p=p->next;
+    }
+}
+bool ListInert(LinkList &L ,int i ,int e){
+    if()
 }
 int main(){
     LinkList L;
     InitList(L);
     //List_HeadInsert(L);
-    //List_TailInsert(L);
+    List_TailInsert(L);
     print(L);
+//    if(GetElem(L,2)){
+//        printf("%d ",GetElem(L,2)->data);
+//    }
+//    if(LocateElem(L,2)){
+//        printf("%d ",LocateElem(L,2)->data);
+//    }
+    printf("%d",Length(L));
+
+
     return 0;
 }
 
