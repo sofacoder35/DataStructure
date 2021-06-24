@@ -77,12 +77,39 @@ void print(LinkList &L){
         p=p->next;
     }
 }
-
+bool ListInsert(LinkList &L,int i,int e){//按位置插入结点
+    LNode *p=GetElem(L,i-1);
+    if(p==NULL){
+        return false;
+    }
+    else{
+        LNode *s=new LNode;
+        s->data=e;
+        s->next=p->next;
+        p->next=s;
+        return true;
+    }
+}
+bool ListDelete(LinkList & L,int i,int &e){
+    LNode *p=GetElem(L,i-1);
+    if(p==NULL)
+        return false;
+    else{
+        LNode *q=p->next;
+        p->next=q->next;
+        e=q->data;
+        delete(q);
+        return true;
+    }
+}
 int main(){
     LinkList L;
+    int e;
     InitList(L);
     //List_HeadInsert(L);
     List_TailInsert(L);
+//    ListInsert(L,2,99);
+    ListDelete(L,2,e);
     print(L);
 //    if(GetElem(L,2)){
 //        printf("%d ",GetElem(L,2)->data);
@@ -90,7 +117,7 @@ int main(){
 //    if(LocateElem(L,2)){
 //        printf("%d ",LocateElem(L,2)->data);
 //    }
-    printf("%d",Length(L));
+//    printf("%d",Length(L));
 
 
     return 0;
